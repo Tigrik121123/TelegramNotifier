@@ -1,4 +1,4 @@
-﻿package com.wortex.telegramnotifier; // Замени на свой пакет
+package com.wortex.telegramnotifier; // Замени на свой пакет
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

@@ -18,10 +18,10 @@ jobs:
       uses: actions/checkout@v4 # Используй актуальную версию
 
     # Шаг 2: Установка JDK 17 (или той версии, что указана в pom.xml)
-    - name: Set up JDK 17
+    - name: Set up JDK 21
       uses: actions/setup-java@v4 # Используй актуальную версию
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'temurin' # Дистрибутив Java (Temurin хороший выбор)
         cache: maven # Кеширование зависимостей Maven для ускорения сборок
 

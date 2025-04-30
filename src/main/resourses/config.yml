@@ -1,0 +1,14 @@
+﻿# Токен вашего Telegram бота (получается у @BotFather)
+bot-token: ""
+# ID чата (или пользователя) куда будут отправляться сообщения
+# Узнать можно у бота @userinfobot или @myidbot
+chat-id: ""
+
+# Настройки сообщений (можно добавить больше для кастомизации)
+messages:
+  server-start: "✅ Сервер запущен!"
+  server-stop: "❌ Сервер остановлен!"
+  player-join: "➡️ Игрок %player% вошел на сервер."
+  player-quit: "⬅️ Игрок %player% вышел с сервера."
+  player-chat: "[Chat] %player%: %message%"
+  player-command: "[Cmd] %player%: %command%"

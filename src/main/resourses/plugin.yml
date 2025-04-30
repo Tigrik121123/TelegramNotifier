@@ -1,0 +1,21 @@
+﻿name: TelegramNotifier
+version: ${project.version} # Берется из pom.xml
+main: com.wortex.telegramnotifier.TelegramNotifier # Замени com.yourusername на свой пакет
+api-version: '1.20' # Укажи минимально поддерживаемую версию API (например, 1.20)
+author: CotpyDHik_Wortex # Твое имя или ник
+description: ${project.description} # Берется из pom.xml
+
+commands:
+  settoken:
+    description: Устанавливает токен Telegram бота.
+    usage: /<command> [токен]
+    permission: telegramnotifier.admin
+  setchatid:
+    description: Устанавливает ID чата Telegram для отправки сообщений.
+    usage: /<command> [chat_id]
+    permission: telegramnotifier.admin
+
+permissions:
+  telegramnotifier.admin:
+    description: Разрешает использовать команды /settoken и /setchatid.
+    default: op # Дает доступ операторам сервера по умолчанию

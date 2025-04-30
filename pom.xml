@@ -13,7 +13,7 @@
     <description>Sends Minecraft server events to Telegram</description>
 
     <properties>
-        <java.version>17</java.version> <!-- Minecraft 1.18+ требует Java 17 -->
+        <java.version>21</java.version> <!-- Minecraft 1.18+ требует Java 17 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

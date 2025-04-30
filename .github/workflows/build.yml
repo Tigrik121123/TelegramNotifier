@@ -1,0 +1,41 @@
+name: Java CI with Maven Build
+
+# Запускать при пуше в ветку main или при создании Pull Request на main
+on:
+  push:
+    branches: [ "main" ] # Или master, если у тебя так называется главная ветка
+  pull_request:
+    branches: [ "main" ] # Или master
+
+jobs:
+  build:
+    # Запускать на последней версии Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+    # Шаг 1: Клонирование твоего репозитория
+    - name: Checkout repository
+      uses: actions/checkout@v4 # Используй актуальную версию
+
+    # Шаг 2: Установка JDK 17 (или той версии, что указана в pom.xml)
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4 # Используй актуальную версию
+      with:
+        java-version: '17'
+        distribution: 'temurin' # Дистрибутив Java (Temurin хороший выбор)
+        cache: maven # Кеширование зависимостей Maven для ускорения сборок
+
+    # Шаг 3: Сборка проекта с помощью Maven
+    - name: Build with Maven
+      # Команда mvn clean package соберет твой проект
+      # -B отключает интерактивный режим (batch mode)
+      run: mvn -B clean package
+
+    # Шаг 4: Загрузка артефакта (скомпилированного JAR-файла)
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4 # Используй актуальную версию
+      with:
+        name: TelegramNotifierPlugin # Имя артефакта (как он будет называться при скачивании)
+        # Путь к файлу JAR. Maven по умолчанию кладет его в папку target/
+        # Имя файла обычно <artifactId>-<version>.jar
+        path: target/TelegramNotifier-*.jar # Используем * чтобы подхватить любую версию
